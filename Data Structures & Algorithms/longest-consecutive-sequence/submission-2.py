@@ -1,0 +1,17 @@
+from collections import defaultdict
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+       if(len(nums)==0):
+        return 0
+       numSet=set(nums)
+       answer=0
+       for n in nums:
+        if(n-1) not in numSet:
+            length=0
+            while(n+length) in numSet:
+                length+=1
+            answer=max(length,answer)
+       return answer
+                
+
+
